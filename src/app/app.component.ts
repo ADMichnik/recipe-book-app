@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-book';
+  
+  feature: string = 'recipe';
+
+  featureSet(feature: string) {
+    this.feature = feature;
+  }
 }
