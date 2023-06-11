@@ -3,6 +3,7 @@ import { Ingredient } from "../shared/ingredient.model";
 
 export class ShoppingListService {
 
+
     ingerientsChanged = new EventEmitter<Ingredient[]>();
 
     private ingredients: Ingredient[] = [
@@ -16,7 +17,12 @@ export class ShoppingListService {
 
     addIngredient( ingredient: Ingredient) {
         this.ingredients.push(ingredient);
-        this.ingerientsChanged.emit(this.ingredients.slice())
+        this.ingerientsChanged.emit(this.ingredients.slice());
+    }
+
+    addIngredients(ingredients: Ingredient[]) {
+        this.ingredients.push(...ingredients);
+        this.ingerientsChanged.emit(this.ingredients.slice());
     }
 
 }
