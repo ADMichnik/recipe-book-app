@@ -1,12 +1,25 @@
 import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
+import { Ingredient } from "../shared/ingredient.model";
 
 export class RecipeService {
     recpieSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
-        new Recipe (`A Test Recipe`, `That is simply a test`, `https://upload.wikimedia.org/wikipedia/commons/9/96/Low-Carb_Zoodles_with_Bolognese.jpg`),
-        new Recipe (`Cauliflower pizza crust`, `Recipe on how to make a cauliflower crust pizza`, `https://upload.wikimedia.org/wikipedia/commons/3/37/Cauliflower_pizza_crust_%2817024767906%29.jpg`)
+        new Recipe (`A Test Recipe`, 
+        `That is simply a test`, 
+        `https://upload.wikimedia.org/wikipedia/commons/9/96/Low-Carb_Zoodles_with_Bolognese.jpg`,
+        [
+          new Ingredient('Zucchini', 2),
+          new Ingredient('Ground Beef', 1)
+        ]),
+        new Recipe (`Cauliflower pizza crust`, 
+        `Recipe on how to make a cauliflower crust pizza`, 
+        `https://upload.wikimedia.org/wikipedia/commons/3/37/Cauliflower_pizza_crust_%2817024767906%29.jpg`,
+        [
+          new Ingredient('Cauliflower', 1),
+          new Ingredient('Butter', 2)
+        ])
       ];
 
     getRecipes() {
